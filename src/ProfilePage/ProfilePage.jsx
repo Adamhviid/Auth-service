@@ -12,7 +12,7 @@ function ProfilePage() {
   async function handleSubmit() {
     try {
       await logout();
-      navigate("/login");
+      navigate("/");
     } catch (e) {
       alert("Failed to logout");
     }

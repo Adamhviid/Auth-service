@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Typography, TextField } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 import "./FormTemplate.css";
 
 import { useAuth } from "../../contexts/AuthContext";
 
 export default function FormTemplate(props) {
+  const navigate = useNavigate();
   const { title, type } = props;
   const { currentUser, register, login } = useAuth();
 
@@ -18,10 +21,12 @@ export default function FormTemplate(props) {
       switch (type) {
         case "login":
           login(email, password);
+          navigate("/profile");
           break;
 
         case "register":
           register(email, password);
+          navigate("/");
           break;
 
         default:
