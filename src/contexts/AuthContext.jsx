@@ -18,16 +18,16 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  function register(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password);
+  async function register(email, password) {
+    return await createUserWithEmailAndPassword(auth, email, password);
   }
 
-  function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password);
+  async function login(email, password) {
+    return await signInWithEmailAndPassword(auth, email, password);
   }
 
-  function logout() {
-    return signOut(auth);
+  async function logout() {
+    return await signOut(auth);
   }
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export function AuthProvider({ children }) {
     register,
     error,
     setError,
-    logout
+    logout,
   };
 
   return (

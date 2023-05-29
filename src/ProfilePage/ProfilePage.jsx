@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { Button } from "@mui/material";
 
 import { useAuth } from "../contexts/AuthContext";
 
 function ProfilePage() {
   const navigate = useNavigate();
   const { logout, currentUser } = useAuth();
+
+  useEffect(() => {
+    console.log(currentUser);
+  }, [currentUser, navigate]);
 
   async function handleSubmit() {
     try {
